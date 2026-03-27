@@ -1,4 +1,4 @@
-## Engenharia de Software – Plataforma de Apoio à Cessação do Tabagismo
+## 0FUMO – Plataforma de Apoio à Cessação do Tabagismo
 > Este projeto é parte da disciplina de **Engenharia de Software**, com foco em aplicar conceitos de análise de requisitos, modelagem e desenvolvimento de sistemas voltados para problemas reais.
 
 
