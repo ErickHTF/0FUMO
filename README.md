@@ -4,7 +4,7 @@
 
 ## Problemas que Resolvemos ##
 
-O tabagismo é um dos principais fatores de risco para diversas doenças e problemas de saúde pública. Muitas pessoas desejam parar de fumar, porém enfrentam dificuldades relacionadas a dependência química, fatores psicológicos e hábitos sociais.
+Muitas pessoas enfrentam dificuldades ao tentar parar de fumar, principalmente devido à dependência física e aos fatores emocionais envolvidos, como estresse, ansiedade e hábitos do dia a dia. Além disso, a ausência de acompanhamento contínuo e de ferramentas práticas dificulta a identificação de gatilhos e aumenta a probabilidade de recaídas. Outro problema comum é a baixa adesão a soluções existentes, que muitas vezes são complexas ou pouco acessíveis no cotidiano do usuário.
 
 ## Solução ##
 Nesse contexto, surge a necessidade de **ferramentas que possam auxiliar indivíduos no processo de cessação do tabagismo, oferecendo acompanhamento, motivação e suporte durante a jornada.**
@@ -16,7 +16,6 @@ O sistema permitirá:
 - Monitorar o progresso do usuário sem fumar
 - Apresentar estatísticas de saúde relacionadas ao tempo sem fumar
 - Registrar momentos de desejo de fumar para identificar padrões
-- Enviar lembretes e mensagens motivacionais
 - Oferecer recursos de relaxamento para controle da ansiedade
 - Auxiliar o usuário na decisão de parar de fumar por meio de avaliação inicial
 
@@ -27,7 +26,7 @@ Dessa forma, o sistema busca aumentar as chances de sucesso no abandono do tabag
 - Aumento das chances de sucesso no abandono do tabagismo  
 - Melhora da qualidade de vida e da saúde dos usuários  
 - Redução de custos associados ao tratamento de doenças relacionadas ao tabaco  
-- Ferramenta acessível e escalável para apoio em saúde pública  
+- Reduzir a frequência de recaídas
 
 ## Público-Alvo ##
 - Indivíduos que desejam parar de fumar  
