@@ -4,3 +4,6 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/ErickHTF/0FUMO-Frontend-Codebase
+[submodule "3.Implementacao/0FUMO-Frontend-Codebase"]
+	path = 3.Implementacao/0FUMO-Frontend-Codebase
+	url = https://github.com/ErickHTF/0FUMO-Frontend-Codebase
