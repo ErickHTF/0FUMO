@@ -1,0 +1,104 @@
+package com.example.demo.service;
+
+import com.example.demo.dto.*;
+import com.example.demo.entity.User;
+import com.example.demo.exception.EmailAlreadyRegisteredException;
+import com.example.demo.exception.UserNotFoundException;
+import com.example.demo.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class UserService implements UserDetailsService {
+
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+
+    public AuthResponseDTO register(RegisterRequestDTO dto) {
+        String email = dto.getEmail().toLowerCase();
+
+        if (userRepository.existsByEmailIgnoreCase(email)) {
+            throw new EmailAlreadyRegisteredException(email);
+        }
+
+        User user = User.builder()
+                .name(dto.getName())
+                .email(email)
+                .password(passwordEncoder.encode(dto.getPassword()))
+                .build();
+
+        userRepository.save(user);
+
+        String token = jwtService.generateToken(toUserDetails(user));
+        return new AuthResponseDTO(token, UserResponseDTO.from(user));
+    }
+
+    public AuthResponseDTO login(String email) {
+        User user = userRepository.findByEmailIgnoreCase(email.toLowerCase())
+                .orElseThrow(() -> new UsernameNotFoundException(email));
+
+        String token = jwtService.generateToken(toUserDetails(user));
+        return new AuthResponseDTO(token, UserResponseDTO.from(user));
+    }
+
+    public UserResponseDTO findById(Long id) {
+        return UserResponseDTO.from(getUser(id));
+    }
+
+    public UserResponseDTO update(Long id, UpdateUserDTO dto) {
+        User user = getUser(id);
+        String email = dto.getEmail().toLowerCase();
+
+        if (!user.getEmail().equalsIgnoreCase(email)
+                && userRepository.existsByEmailIgnoreCase(email)) {
+            throw new EmailAlreadyRegisteredException(email);
+        }
+
+        user.setName(dto.getName());
+        user.setEmail(email);
+        return UserResponseDTO.from(userRepository.save(user));
+    }
+
+    public UserResponseDTO completeAssessment(Long id, AssessmentRequestDTO dto) {
+        User user = getUser(id);
+        user.setCigsPerDay(dto.getCigsPerDay());
+        user.setSmokingYears(dto.getSmokingYears());
+        user.setMotivation(dto.getMotivation());
+        user.setDependencyLevel(dto.getDependencyLevel());
+        user.setAssessmentCompleted(true);
+        return UserResponseDTO.from(userRepository.save(user));
+    }
+
+    public void delete(Long id) {
+        if (!userRepository.existsById(id)) {
+            throw new UserNotFoundException(id);
+        }
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepository.findByEmailIgnoreCase(email.toLowerCase())
+                .map(this::toUserDetails)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + email));
+    }
+
+    private UserDetails toUserDetails(User user) {
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(user.getEmail())
+                .password(user.getPassword())
+                .roles("USER")
+                .build();
+    }
+
+    private User getUser(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
+    }
+}
