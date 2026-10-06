@@ -9,21 +9,22 @@
 
 ---
 
-## 1. Clonar os repositórios
+## 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/ErickHTF/0FUMO-Codebase.git
-git clone https://github.com/ErickHTF/0FUMO-Frontend-Codebase.git
+git clone https://github.com/ErickHTF/0FUMO.git
+cd 0FUMO
 ```
+
+> Atalho: `docker compose --profile app up -d --build` sobe banco, backend e frontend em containers, sem precisar de Java nem Node. Os passos abaixo são para rodar em modo de desenvolvimento.
 
 ---
 
 ## 2. Subir o banco de dados
 
-Dentro da pasta do backend:
+Na raiz do repositório:
 
 ```bash
-cd 0FUMO-Codebase
 docker compose up -d
 ```
 
@@ -46,9 +47,10 @@ docker ps
 
 ## 3. Rodar o backend
 
-Ainda na pasta do backend:
+Na pasta do backend:
 
 ```bash
+cd backend
 ./mvnw spring-boot:run
 ```
 
@@ -61,7 +63,7 @@ Aguarda aparecer `Started ZerofumoApplication` no terminal. A API fica em `http:
 Em outro terminal, na pasta do frontend:
 
 ```bash
-cd 0FUMO-Frontend-Codebase
+cd frontend
 npx serve .
 ```
 
@@ -84,7 +86,9 @@ O frontend não funciona sem o backend rodando.
 ```bash
 # Para o backend: Ctrl+C no terminal dele
 
-# Para o banco:
-cd 0FUMO-Codebase
+# Para o banco (na raiz):
 docker compose down
+
+# Se subiu tudo via Docker:
+docker compose --profile app down
 ```

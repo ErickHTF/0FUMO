@@ -4,7 +4,7 @@ Interface web em HTML/CSS/JS puro para a aplicação de cessação do tabagismo.
 
 ## Pré-requisitos
 
-- Backend rodando em `http://localhost:8080` (ver repo do backend)
+- Backend rodando em `http://localhost:8080` (ver [`backend/`](../backend))
 - Node.js (opcional, para servir via `npx serve`)
 
 ## Como rodar

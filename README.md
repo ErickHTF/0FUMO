@@ -1,5 +1,5 @@
 ## 0FUMO – Plataforma de Apoio à Cessação do Tabagismo
-> Este projeto é parte da disciplina de **Engenharia de Software**, com foco em aplicar conceitos de análise de requisitos, modelagem e desenvolvimento de sistemas voltados para problemas reais.
+> Este projeto é parte da disciplina de **Linguagem de Programação 1**, com foco em aplicar conceitos de análise de requisitos, modelagem e desenvolvimento de sistemas voltados para problemas reais.
 
 
 ## Problemas que Resolvemos ##
@@ -31,3 +31,24 @@ Dessa forma, o sistema busca aumentar as chances de sucesso no abandono do tabag
 ## Público-Alvo ##
 - Indivíduos que desejam parar de fumar  
 - Profissionais de saúde que buscam ferramentas de apoio
+
+## Estrutura do Repositório ##
+
+| Pasta | Conteúdo |
+|---|---|
+| [`backend/`](backend) | API REST em Spring Boot 4 (Java 21, JWT, PostgreSQL) |
+| [`frontend/`](frontend) | Interface web em HTML/CSS/JS puro |
+| [`docs/`](docs) | Requisitos, casos de uso, modelos de análise, roteiro de teste, guias e gerenciamento |
+
+## Como Rodar ##
+
+Com Docker, sobe banco, API e frontend de uma vez:
+
+```bash
+docker compose --profile app up -d --build
+```
+
+- Frontend: http://localhost:3000
+- API: http://localhost:8080/api
+
+Para desenvolvimento, sobe só o banco e roda a API e o front localmente. O passo a passo está no [Guia de Implantação](DEPLOY.md).

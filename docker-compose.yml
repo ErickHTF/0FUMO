@@ -1,0 +1,45 @@
+services:
+
+  postgres:
+    image: postgres:13.22
+    container_name: zerofumo-db
+    restart: always
+    environment:
+      POSTGRES_USER: zerofumo_user
+      POSTGRES_PASSWORD: zerofumo_pass
+      POSTGRES_DB: zerofumo_DB
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zerofumo_user -d zerofumo_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build: ./backend
+    container_name: zerofumo-api
+    profiles: ["app"]
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/zerofumo_DB
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    image: nginx:1.27-alpine
+    container_name: zerofumo-web
+    profiles: ["app"]
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

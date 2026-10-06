@@ -9,7 +9,7 @@ API REST em Spring Boot para a aplicação de cessação do tabagismo.
 
 ## Como rodar
 
-**1. Sobe o banco**
+**1. Sobe o banco** (na raiz do repositório)
 
 ```bash
 docker compose up -d
@@ -17,7 +17,7 @@ docker compose up -d
 
 Sobe um PostgreSQL 13 na porta 5433.
 
-**2. Roda a API**
+**2. Roda a API** (nesta pasta)
 
 ```bash
 ./mvnw spring-boot:run
