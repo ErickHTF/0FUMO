@@ -54,7 +54,7 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
-Aguarda aparecer `Started ZerofumoApplication` no terminal. A API fica em `http://localhost:8080`.
+Aguarda aparecer `Started ZeroFumoApplication` no terminal. A API fica em `http://localhost:8080`.
 
 ---
 
