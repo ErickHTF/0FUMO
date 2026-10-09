@@ -27,6 +27,8 @@ A API fica disponível em `http://localhost:8080`.
 
 ## Testes
 
+Os testes de integração usam o PostgreSQL do `docker compose`, então o banco precisa estar de pé (passo 1).
+
 ```bash
 ./mvnw test
 ```
