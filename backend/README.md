@@ -41,7 +41,7 @@ The integration tests use the PostgreSQL from `docker compose`, so the database 
 | POST | `/api/auth/login` | No | Log in (`LoginRequestDTO`: `email`, `password`). Returns token and user |
 | GET | `/api/users/me` | Yes | Current user |
 | GET | `/api/users/{id}` | Yes | Get user by id |
-| PUT | `/api/users/{id}` | Yes | Update user (`UpdateUserDTO`: `name`, `email`) |
+| PUT | `/api/users/{id}` | Yes | Update user (`UpdateUserDTO`: `name`, `email`). Returns `409` if the e-mail is taken |
 | DELETE | `/api/users/{id}` | Yes | Delete user. Returns `204` |
 | POST | `/api/users/{id}/assessment` | Yes | Initial assessment (`AssessmentRequestDTO`: `cigsPerDay`, `smokingYears`, `motivation`, `dependencyLevel`) |
 | POST | `/api/events` | Yes* | Log an event (`EventRequestDTO`: `type`, `intensity`, `trigger`, `notes` optional, `occurredAt`). Returns `201` |
@@ -49,7 +49,7 @@ The integration tests use the PostgreSQL from `docker compose`, so the database 
 | GET | `/api/progress` | Yes* | Progress stats (`ProgressStatsDTO`: totals by type, intensity and trigger, last event, days tracking) |
 | GET | `/api/relaxation-resources` | Yes* | List relaxation resources |
 | GET | `/api/relaxation-resources?trigger={trigger}` | Yes* | Relaxation resources for a trigger |
-| GET | `/api/features` | Yes* | Checks whether the app features are unlocked |
+| GET | `/api/features` | Yes* | Returns `200` (`{"features":"enabled"}`) once the assessment is done |
 
 Authenticated routes require an `Authorization: Bearer <token>` header.
 
