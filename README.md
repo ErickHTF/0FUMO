@@ -35,6 +35,18 @@ This way, the system aims to increase the chances of successfully quitting smoki
 - People who want to quit smoking
 - Healthcare professionals looking for support tools
 
+## Screenshots
+
+| Dashboard | Initial assessment |
+|---|---|
+| ![Dashboard with progress stats](docs/screenshots/dashboard.jpg) | ![Initial assessment form](docs/screenshots/assessment.jpg) |
+
+<details>
+<summary>Event diary (log cravings, resistances and relapses)</summary>
+
+![Event diary with history](docs/screenshots/events.jpg)
+</details>
+
 ## Repository Structure
 
 | Folder | Contents |
