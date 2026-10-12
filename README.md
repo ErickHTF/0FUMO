@@ -41,7 +41,7 @@ This way, the system aims to increase the chances of successfully quitting smoki
 |---|---|
 | [`backend/`](backend) | REST API in Spring Boot 4 (Java 21, JWT, PostgreSQL) |
 | [`frontend/`](frontend) | Web interface in plain HTML/CSS/JS |
-| [`docs/`](docs) | Requirements, use cases, analysis models, test script, guides and project management (in Portuguese) |
+| [`docs/`](docs) | Requirements, use cases, analysis models, test script, guides and project management (Word, Excel and Astah files, in Portuguese) |
 
 ## Getting Started
 
@@ -54,4 +54,4 @@ docker compose --profile app up -d --build
 - Frontend: http://localhost:3000
 - API: http://localhost:8080/api
 
-For development, start only the database and run the API and frontend locally. The step-by-step is in the [Deployment Guide](DEPLOY.md) (in Portuguese).
+For development, start only the database and run the API and frontend locally. The step-by-step is in the [Deployment Guide](DEPLOY.md).

@@ -1,40 +1,40 @@
 # 0FUMO — Frontend
 
-Interface web em HTML/CSS/JS puro para a aplicação de cessação do tabagismo.
+Plain HTML/CSS/JS web interface for the smoking cessation application.
 
-## Pré-requisitos
+## Prerequisites
 
-- Backend rodando em `http://localhost:8080` (ver [`backend/`](../backend))
-- Node.js (opcional, para servir via `npx serve`)
+- Backend running at `http://localhost:8080` (see [`backend/`](../backend))
+- Node.js (optional, to serve via `npx serve`)
 
-## Como rodar
+## Getting Started
 
-**Opção 1 — npx serve**
+**Option 1 — npx serve**
 
 ```bash
 npx serve .
 ```
 
-Abre no endereço indicado no terminal (geralmente `http://localhost:3000`).
+Open the address shown in the terminal (usually `http://localhost:3000`).
 
 
-## Páginas
+## Pages
 
-| Arquivo | Descrição |
+| File | Description |
 |---|---|
 | `index.html` | Landing page |
-| `register.html` | Cadastro |
-| `login.html` | Login |
-| `assessment.html` | Avaliação inicial |
-| `dashboard.html` | Painel do usuário |
-| `eventos.html` | Registrar e listar eventos |
+| `register.html` | Sign up |
+| `login.html` | Log in |
+| `assessment.html` | Initial assessment |
+| `dashboard.html` | User dashboard |
+| `eventos.html` | Log and list events |
 
-## Observação
+## Note
 
-A URL da API está definida na primeira linha de `js/api.js`:
+The API URL is defined on the first line of `js/api.js`:
 
 ```js
 const API_BASE = 'http://localhost:8080/api';
 ```
 
-Altere se o backend estiver em outro endereço.
+Change it if the backend runs at a different address.

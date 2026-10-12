@@ -1,43 +1,43 @@
-# Guia de implantação local — 0FUMO
+# Local Deployment Guide — 0FUMO
 
-## Pré-requisitos
+## Prerequisites
 
 - [Java 21](https://adoptium.net)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
-- [Node.js](https://nodejs.org) (para servir o frontend)
+- [Node.js](https://nodejs.org) (to serve the frontend)
 - Git
 
 ---
 
-## 1. Clonar o repositório
+## 1. Clone the repository
 
 ```bash
 git clone https://github.com/ErickHTF/0FUMO.git
 cd 0FUMO
 ```
 
-> Atalho: `docker compose --profile app up -d --build` sobe banco, backend e frontend em containers, sem precisar de Java nem Node. Os passos abaixo são para rodar em modo de desenvolvimento.
+> Shortcut: `docker compose --profile app up -d --build` brings up the database, backend and frontend in containers, with no need for Java or Node. The steps below are for running in development mode.
 
 ---
 
-## 2. Subir o banco de dados
+## 2. Start the database
 
-Na raiz do repositório:
+From the repository root:
 
 ```bash
 docker compose up -d
 ```
 
-Isso sobe um PostgreSQL 13 na porta **5433** com as configurações:
+This starts PostgreSQL 13 on port **5433** with the following settings:
 
-| Parâmetro | Valor |
+| Parameter | Value |
 |---|---|
 | Host | `localhost:5433` |
-| Banco | `zerofumo_DB` |
-| Usuário | `zerofumo_user` |
-| Senha | `zerofumo_pass` |
+| Database | `zerofumo_DB` |
+| User | `zerofumo_user` |
+| Password | `zerofumo_pass` |
 
-Para verificar se subiu:
+To check that it's up:
 
 ```bash
 docker ps
@@ -45,50 +45,50 @@ docker ps
 
 ---
 
-## 3. Rodar o backend
+## 3. Run the backend
 
-Na pasta do backend:
+From the backend folder:
 
 ```bash
 cd backend
 ./mvnw spring-boot:run
 ```
 
-Aguarda aparecer `Started ZeroFumoApplication` no terminal. A API fica em `http://localhost:8080`.
+Wait for `Started ZeroFumoApplication` to show up in the terminal. The API is available at `http://localhost:8080`.
 
 ---
 
-## 4. Rodar o frontend
+## 4. Run the frontend
 
-Em outro terminal, na pasta do frontend:
+In another terminal, from the frontend folder:
 
 ```bash
 cd frontend
 npx serve .
 ```
 
-Abre o navegador em `http://localhost:3000`.
+Open your browser at `http://localhost:3000`.
 
 ---
 
-## Ordem de inicialização
+## Startup order
 
 ```
-Docker (banco) → Backend (porta 8080) → Frontend (porta 3000)
+Docker (database) → Backend (port 8080) → Frontend (port 3000)
 ```
 
-O frontend não funciona sem o backend rodando.
+The frontend doesn't work without the backend running.
 
 ---
 
-## Parar tudo
+## Stopping everything
 
 ```bash
-# Para o backend: Ctrl+C no terminal dele
+# Backend: Ctrl+C in its terminal
 
-# Para o banco (na raiz):
+# Database (from the root):
 docker compose down
 
-# Se subiu tudo via Docker:
+# If you started everything via Docker:
 docker compose --profile app down
 ```

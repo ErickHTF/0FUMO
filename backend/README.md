@@ -1,33 +1,33 @@
 # 0FUMO — Backend
 
-API REST em Spring Boot para a aplicação de cessação do tabagismo.
+Spring Boot REST API for the smoking cessation application.
 
-## Pré-requisitos
+## Prerequisites
 
 - Java 21
 - Docker Desktop
 
-## Como rodar
+## Getting Started
 
-**1. Sobe o banco** (na raiz do repositório)
+**1. Start the database** (from the repository root)
 
 ```bash
 docker compose up -d
 ```
 
-Sobe um PostgreSQL 13 na porta 5433.
+Starts PostgreSQL 13 on port 5433.
 
-**2. Roda a API** (nesta pasta)
+**2. Run the API** (from this folder)
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-A API fica disponível em `http://localhost:8080`.
+The API is available at `http://localhost:8080`.
 
-## Testes
+## Tests
 
-Os testes de integração usam o PostgreSQL do `docker compose`, então o banco precisa estar de pé (passo 1).
+The integration tests use the PostgreSQL from `docker compose`, so the database needs to be up (step 1).
 
 ```bash
 ./mvnw test
@@ -35,12 +35,12 @@ Os testes de integração usam o PostgreSQL do `docker compose`, então o banco 
 
 ## Endpoints
 
-| Método | Rota | Auth | Descrição |
+| Method | Route | Auth | Description |
 |---|---|---|---|
-| POST | `/api/auth/register` | Não | Cadastro |
-| POST | `/api/auth/login` | Não | Login |
-| POST | `/api/users/{id}/assessment` | Sim | Avaliação inicial |
-| POST | `/api/events` | Sim | Registrar evento |
-| GET  | `/api/events` | Sim | Listar eventos |
+| POST | `/api/auth/register` | No | Sign up |
+| POST | `/api/auth/login` | No | Log in |
+| POST | `/api/users/{id}/assessment` | Yes | Initial assessment |
+| POST | `/api/events` | Yes | Log an event |
+| GET  | `/api/events` | Yes | List events |
 
-Rotas autenticadas exigem `Authorization: Bearer <token>` no header.
+Authenticated routes require an `Authorization: Bearer <token>` header.
