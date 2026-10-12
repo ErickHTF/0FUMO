@@ -5,7 +5,7 @@ Plain HTML/CSS/JS web interface for the smoking cessation application.
 ## Prerequisites
 
 - Backend running at `http://localhost:8080` (see [`backend/`](../backend))
-- Node.js (optional, to serve via `npx serve`)
+- Node.js (optional, to serve via `npx serve`) or Docker
 
 ## Getting Started
 
@@ -17,6 +17,13 @@ npx serve .
 
 Open the address shown in the terminal (usually `http://localhost:3000`).
 
+**Option 2 — Docker** (from the repository root)
+
+```bash
+docker compose --profile app up -d --build
+```
+
+Serves this folder with nginx at `http://localhost:3000`, together with the database and the backend.
 
 ## Pages
 
