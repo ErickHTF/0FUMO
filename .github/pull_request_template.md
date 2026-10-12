@@ -1,3 +1,3 @@
-### O que foi feito:
-### Orientação para testes do revisor:
-### Número do Issue:
+### What was done:
+### Testing notes for the reviewer:
+### Issue number:

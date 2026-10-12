@@ -16,8 +16,8 @@ jobs:
       run:
         working-directory: backend
 
-    # Os testes de integracao (@SpringBootTest) usam um Postgres real.
-    # Mesmas credenciais do docker-compose.yml / application.properties.
+    # The integration tests (@SpringBootTest) use a real Postgres.
+    # Same credentials as docker-compose.yml / application.properties.
     services:
       postgres:
         image: postgres:13.22

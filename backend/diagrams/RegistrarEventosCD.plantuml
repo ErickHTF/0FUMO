@@ -20,7 +20,7 @@ package "pkg 2.Design" {
     - createdAt : LocalDateTime
   }
 
-  Usuario "1" -- "0..*" Evento : registra >
+  Usuario "1" -- "0..*" Evento : logs >
 
 }
 

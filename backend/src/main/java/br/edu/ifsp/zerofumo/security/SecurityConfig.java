@@ -1,7 +1,7 @@
 package br.edu.ifsp.zerofumo.security;
 
 import br.edu.ifsp.zerofumo.service.UserService;
-import jakarta.servlet.http.HttpServletResponse; // Import necessário para o erro 401
+import jakarta.servlet.http.HttpServletResponse; // Needed for the 401 error
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -40,7 +40,7 @@ class AvaliacaoInicialIntegrationTest {
         return "teste+" + UUID.randomUUID() + "@zerofumo.com";
     }
 
-    /** Registra um usuário e retorna { token, userId }. */
+    /** Registers a user and returns { token, userId }. */
     private Map<String, Object> registerUser() throws Exception {
         String payload = objectMapper.writeValueAsString(
                 Map.of("name", "Teste User", "email", uniqueEmail(), "password", "senha1234"));
@@ -69,7 +69,7 @@ class AvaliacaoInicialIntegrationTest {
     }
 
     // ------------------------------------------------------------------ //
-    //  Fluxo principal                                                    //
+    //  Main flow                                                          //
     // ------------------------------------------------------------------ //
 
     @Test
@@ -119,7 +119,7 @@ class AvaliacaoInicialIntegrationTest {
     }
 
     // ------------------------------------------------------------------ //
-    //  Validação de campos obrigatórios                                   //
+    //  Required field validation                                          //
     // ------------------------------------------------------------------ //
 
     @Test
@@ -206,7 +206,7 @@ class AvaliacaoInicialIntegrationTest {
     }
 
     // ------------------------------------------------------------------ //
-    //  Segurança                                                          //
+    //  Security                                                           //
     // ------------------------------------------------------------------ //
 
     @Test
