@@ -1,48 +1,51 @@
-## 0FUMO – Plataforma de Apoio à Cessação do Tabagismo
-> Este projeto é parte da disciplina de **Linguagem de Programação 1**, com foco em aplicar conceitos de análise de requisitos, modelagem e desenvolvimento de sistemas voltados para problemas reais.
+# 0FUMO – Smoking Cessation Support Platform
 
+> This project is part of the **Programming Language 1** course, focused on applying requirements analysis, modeling and software development concepts to real-world problems.
 
-## Problemas que Resolvemos ##
+## The Problem
 
-Muitas pessoas enfrentam dificuldades ao tentar parar de fumar, principalmente devido à dependência física e aos fatores emocionais envolvidos, como estresse, ansiedade e hábitos do dia a dia. Além disso, a ausência de acompanhamento contínuo e de ferramentas práticas dificulta a identificação de gatilhos e aumenta a probabilidade de recaídas. Outro problema comum é a baixa adesão a soluções existentes, que muitas vezes são complexas ou pouco acessíveis no cotidiano do usuário.
+Many people struggle to quit smoking, mainly because of physical dependence and the emotional factors involved, such as stress, anxiety and daily habits. On top of that, the lack of continuous follow-up and practical tools makes it hard to identify triggers and increases the chance of relapse. Another common problem is low adherence to existing solutions, which are often complex or hard to fit into the user's daily life.
 
-## Solução ##
-Nesse contexto, surge a necessidade de **ferramentas que possam auxiliar indivíduos no processo de cessação do tabagismo, oferecendo acompanhamento, motivação e suporte durante a jornada.**
+## Solution
 
-## Objetivo do Sistema ##
-O objetivo do sistema é fornecer uma plataforma digital que auxilie pessoas no processo de parar de fumar, oferecendo ferramentas de acompanhamento, motivação e suporte comportamental.
-O sistema permitirá:
+In this context, there is a need for **tools that can help people through the process of quitting smoking, offering follow-up, motivation and support along the way.**
 
-- Monitorar o progresso do usuário sem fumar
-- Apresentar estatísticas de saúde relacionadas ao tempo sem fumar
-- Registrar momentos de desejo de fumar para identificar padrões
-- Oferecer recursos de relaxamento para controle da ansiedade
-- Auxiliar o usuário na decisão de parar de fumar por meio de avaliação inicial
+## System Goals
 
-Dessa forma, o sistema busca aumentar as chances de sucesso no abandono do tabagismo.
+The goal of the system is to provide a digital platform that helps people quit smoking, offering progress tracking, motivation and behavioral support tools.
+The system will:
 
-## Meta de Beneficios ##
+- Track the user's smoke-free progress
+- Show health statistics based on time without smoking
+- Log cravings to identify patterns
+- Offer relaxation resources to manage anxiety
+- Help the user decide to quit through an initial assessment
 
-- Aumento das chances de sucesso no abandono do tabagismo  
-- Melhora da qualidade de vida e da saúde dos usuários  
-- Redução de custos associados ao tratamento de doenças relacionadas ao tabaco  
-- Reduzir a frequência de recaídas
+This way, the system aims to increase the chances of successfully quitting smoking.
 
-## Público-Alvo ##
-- Indivíduos que desejam parar de fumar  
-- Profissionais de saúde que buscam ferramentas de apoio
+## Expected Benefits
 
-## Estrutura do Repositório ##
+- Higher chances of successfully quitting smoking
+- Better quality of life and health for users
+- Lower costs associated with treating tobacco-related diseases
+- Fewer relapses
 
-| Pasta | Conteúdo |
+## Target Audience
+
+- People who want to quit smoking
+- Healthcare professionals looking for support tools
+
+## Repository Structure
+
+| Folder | Contents |
 |---|---|
-| [`backend/`](backend) | API REST em Spring Boot 4 (Java 21, JWT, PostgreSQL) |
-| [`frontend/`](frontend) | Interface web em HTML/CSS/JS puro |
-| [`docs/`](docs) | Requisitos, casos de uso, modelos de análise, roteiro de teste, guias e gerenciamento |
+| [`backend/`](backend) | REST API in Spring Boot 4 (Java 21, JWT, PostgreSQL) |
+| [`frontend/`](frontend) | Web interface in plain HTML/CSS/JS |
+| [`docs/`](docs) | Requirements, use cases, analysis models, test script, guides and project management (in Portuguese) |
 
-## Como Rodar ##
+## Getting Started
 
-Com Docker, sobe banco, API e frontend de uma vez:
+With Docker, this brings up the database, API and frontend at once:
 
 ```bash
 docker compose --profile app up -d --build
@@ -51,4 +54,4 @@ docker compose --profile app up -d --build
 - Frontend: http://localhost:3000
 - API: http://localhost:8080/api
 
-Para desenvolvimento, sobe só o banco e roda a API e o front localmente. O passo a passo está no [Guia de Implantação](DEPLOY.md).
+For development, start only the database and run the API and frontend locally. The step-by-step is in the [Deployment Guide](DEPLOY.md) (in Portuguese).
