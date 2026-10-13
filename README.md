@@ -1,103 +1,69 @@
-# 0FUMO — Smoking cessation support
+# 0FUMO – Smoking Cessation Support Platform
 
-A web application for recording cravings, tracking daily progress and finding
-relaxation resources while working toward quitting smoking.
+> This project is part of the **Programming Language 1** course, focused on applying requirements analysis, modeling and software development concepts to real-world problems.
 
-**Status:** Academic project · Programming Language 1, IFSP.
+## The Problem
 
-[![CI](https://github.com/ErickHTF/0FUMO/actions/workflows/ci.yml/badge.svg)](https://github.com/ErickHTF/0FUMO/actions/workflows/ci.yml)
-![Java 21](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4-6DB33F?logo=springboot&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)
+Many people struggle to quit smoking, mainly because of physical dependence and the emotional factors involved, such as stress, anxiety and daily habits. On top of that, the lack of continuous follow-up and practical tools makes it hard to identify triggers and increases the chance of relapse. Another common problem is low adherence to existing solutions, which are often complex or hard to fit into the user's daily life.
 
-[Run locally](#run-locally) · [Development guide](DEPLOY.md) ·
-[Architecture](docs/architecture.md) · [API reference](backend/README.md#endpoints)
+## Solution
 
-![Dashboard with progress statistics and recorded events](docs/screenshots/dashboard.jpg)
+In this context, there is a need for **tools that can help people through the process of quitting smoking, offering follow-up, motivation and support along the way.**
 
-| Initial assessment                                                  | Event diary                                                                 |
-| ------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| ![Initial smoking assessment form](docs/screenshots/assessment.jpg) | ![Event diary for cravings and resisted urges](docs/screenshots/events.jpg) |
+## System Goals
 
-_The interface is in Brazilian Portuguese. Screenshots use synthetic data._
+The goal of the system is to provide a digital platform that helps people quit smoking, offering progress tracking, motivation and behavioral support tools.
+The system will:
 
-## Overview
+- Track the user's smoke-free progress
+- Show health statistics based on time without smoking
+- Log cravings to identify patterns
+- Offer relaxation resources to manage anxiety
+- Help the user decide to quit through an initial assessment
 
-0FUMO brings assessment, event logging and progress tracking into one application.
-The project applies requirements analysis, modeling and software development to
-a smoking cessation support workflow.
+This way, the system aims to increase the chances of successfully quitting smoking.
 
-- Complete an initial assessment of smoking habits and motivation.
-- Record cravings, resisted urges and smoking events with context and intensity.
-- Review progress statistics and an event history.
-- Find relaxation resources related to recorded triggers.
+## Expected Benefits
 
-## Stack
+- Higher chances of successfully quitting smoking
+- Better quality of life and health for users
+- Lower costs associated with treating tobacco-related diseases
+- Fewer relapses
 
-| Layer             | Technologies                                         |
-| ----------------- | ---------------------------------------------------- |
-| Frontend          | HTML, CSS, JavaScript                                |
-| Backend           | Java 21, Spring Boot 4, Spring Security, JWT         |
-| Database          | PostgreSQL, Spring Data JPA                          |
-| Local environment | Docker Compose, Nginx                                |
-| Verification      | JUnit, Spring Boot integration tests, GitHub Actions |
+## Target Audience
 
-## Run locally
+- People who want to quit smoking
+- Healthcare professionals looking for support tools
 
-Install **Git** and **Docker with Docker Compose**.
+## Screenshots
+
+| Dashboard | Initial assessment |
+|---|---|
+| ![Dashboard with progress stats](docs/screenshots/dashboard.jpg) | ![Initial assessment form](docs/screenshots/assessment.jpg) |
+
+<details>
+<summary>Event diary (log cravings, resistances and relapses)</summary>
+
+![Event diary with history](docs/screenshots/events.jpg)
+</details>
+
+## Repository Structure
+
+| Folder | Contents |
+|---|---|
+| [`backend/`](backend) | REST API in Spring Boot 4 (Java 21, JWT, PostgreSQL) |
+| [`frontend/`](frontend) | Web interface in plain HTML/CSS/JS |
+| [`docs/`](docs) | Requirements, use cases, analysis models, test script, guides and project management (Word, Excel and Astah files, in Portuguese) |
+
+## Getting Started
+
+With Docker, this brings up the database, API and frontend at once:
 
 ```bash
-git clone https://github.com/ErickHTF/0FUMO.git
-cd 0FUMO
 docker compose --profile app up -d --build
 ```
 
-Open [localhost:3000](http://localhost:3000), create an account, and complete the
-initial assessment. The API runs at [localhost:8080/api](http://localhost:8080/api).
+- Frontend: http://localhost:3000
+- API: http://localhost:8080/api
 
-For running Java and the frontend outside containers, follow the
-[development guide](DEPLOY.md).
-
-## Verification
-
-With **Java 21** installed, start the local database and run the backend tests:
-
-```bash
-docker compose up -d
-cd backend
-./mvnw test
-```
-
-Integration tests exercise registration, assessment, progress tracking, event
-logging and resource suggestions. They use the local PostgreSQL database;
-run them against a development database.
-
-## Architecture
-
-```mermaid
-flowchart LR
-    Browser[HTML / CSS / JavaScript] -->|HTTP + JWT| API[Spring Boot API]
-    API -->|JPA| DB[(PostgreSQL)]
-```
-
-The browser calls the API with a bearer token. Spring Security protects user
-routes, and assessment completion gates progress, events and relaxation
-resources. Controllers delegate to services and repositories.
-
-See the [architecture guide](docs/architecture.md) for the source layout and
-[academic documentation](docs/README.md) for requirements and models.
-
-## Documentation
-
-| Guide                                         | Contents                                            |
-| --------------------------------------------- | --------------------------------------------------- |
-| [Development and local deployment](DEPLOY.md) | Prerequisites, startup, ports and shutdown          |
-| [Backend reference](backend/README.md)        | API routes, authentication, errors and tests        |
-| [Frontend guide](frontend/README.md)          | Browser interface and local serving                 |
-| [Architecture](docs/architecture.md)          | Repository layout and design diagrams               |
-| [Academic documentation](docs/README.md)      | Requirements, analysis, testing and project records |
-
-## Project context
-
-Developed for the Programming Language 1 course at IFSP. Course documents and
-the interface are in Portuguese; this README provides an English project overview.
-
-No license is currently included in this repository.
+For development, start only the database and run the API and frontend locally. The step-by-step is in the [Deployment Guide](DEPLOY.md).
