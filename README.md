@@ -6,6 +6,7 @@ relaxation resources while working toward quitting smoking.
 **Status:** Academic project · Programming Language 1, IFSP.
 
 [![CI](https://github.com/ErickHTF/0FUMO/actions/workflows/ci.yml/badge.svg)](https://github.com/ErickHTF/0FUMO/actions/workflows/ci.yml)
+![Java 21](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4-6DB33F?logo=springboot&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)
 
 [Run locally](#run-locally) · [Development guide](DEPLOY.md) ·
 [Architecture](docs/architecture.md) · [API reference](backend/README.md#endpoints)
